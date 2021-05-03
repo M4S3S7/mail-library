@@ -1,0 +1,13 @@
+{
+    "name": "m4s3s7/maillibrary",
+    "description": "Php send and get mail library",
+    "type": "library",
+    "license": "mit",
+    "require": {},
+    "autoload":{
+      "psr-4":{
+        "Mail\\":"src",
+        "GetMail\\":"tests"
+      }
+    }
+}
