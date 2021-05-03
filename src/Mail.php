@@ -5,8 +5,8 @@ namespace Mail;
 /**
  * Mail Send - Get Library
  *
- *
- *
+ * https://github.com/M4S3S7/mail-library/blob/master/readme.md
+ * composer require m4s3s7/maillibrary
  * @license  MIT License
  *
  * @author  Mustafa Sevindi <ms.vasilis@gmail.com>
@@ -14,7 +14,7 @@ namespace Mail;
  *
  * @version version 1 beta
  */
- 
+
 class Mail {
   private $imapStream;
   private $plaintextMessage;
@@ -100,7 +100,7 @@ class Mail {
       echo "imap_list failed: " . imap_last_error() . "<br>";
     }
   }
-private function loadMessage($uid, $type) {
+public function loadMessage($uid, $type) {
   $overview = $this->getOverview($uid);
   $array = array();
   $array['uid'] = $overview->uid;
