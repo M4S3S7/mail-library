@@ -5,11 +5,12 @@ include_once "../vendor/autoload.php";
 
 use Mail\Mail;
 
+
 class GetMail{
 
   function mail(){
     $imap = new Mail();
-    $connection_result = $imap->connect('{imap.yandex.com:993/imap/ssl/novalidate-cert}', 'm.sevindi@sezginmarble.com', 'asd123');
+    $connection_result = $imap->connect('{imap.yandex.com:993/imap/ssl/novalidate-cert}', 'email-adress', 'password');
     if ($connection_result !== true) {
       echo $connection_result; //Error message!
       exit;
@@ -20,7 +21,7 @@ class GetMail{
   }
   function mailBoxes(){
     $imap = new Mail();
-    $connection_result = $imap->connect('{imap.yandex.com:993/imap/ssl/novalidate-cert}', 'm.sevindi@sezginmarble.com', 'asd123');
+    $connection_result = $imap->connect('{imap.yandex.com:993/imap/ssl/novalidate-cert}', 'email-adress', 'password');
     if ($connection_result !== true) {
       echo $connection_result; //Error message!
       exit;
@@ -37,6 +38,17 @@ class GetMail{
         }
         return array("data" => $messagesBox);
       }
+    }
+  }
+  function getMessage(){
+    $imap = new Mail();
+    $connection_result = $imap->connect('{imap.yandex.com:993/imap/ssl/novalidate-cert}', 'email-adress', 'password');
+    if ($connection_result !== true) {
+      echo $connection_result; //Error message!
+      exit;
+    }else {
+      $message = $imap->loadMessage('35', 'html');
+      return $message;
     }
   }
 }
